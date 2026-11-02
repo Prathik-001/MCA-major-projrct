@@ -372,47 +372,42 @@ flowchart LR
 The Level 0 Context DFD illustrates the boundary of the UBA Sentinel System and its external entities:
 
 ```mermaid
-flowchart TD
-    Employee["Employee User"] -->|"User Credentials & App Actions"| System(("UBA Sentinel<br/>Insider Threat Platform"))
-    System -->|"macOS Desktop GUI & Lock Screen"| Employee
+flowchart LR
+    User["User / Employee"] -->|"Submitted activity & telemetry"| System(("UBA-Sentinel:<br/>Detect and Contain<br/>Insider Threats"))
+    System -->|"Risk & containment results (Lockdown)"| User
 
-    System -->|"Real-Time Alerts, Scores, & Attribution"| Analyst["SOC Security Analyst"]
-    Analyst -->|"Triage Status & Manual Actions"| System
-
-    Admin["Security Administrator"] -->|"Rule Configs, User Roles, & Unlock Auth"| System
-    System -->|"System Posture & Unlock Status"| Admin
-
-    System -->|"Cryptographic Chain Status & Reports"| Auditor["Compliance Auditor"]
+    System <-->|"Model / rule lookup & baseline policies"| Rules[("Model & Rules DB")]
+    System <-->|"Telemetry feature vectors & anomaly attribution"| MLEngine["Hybrid ML Engine<br/>(Isolation Forest)"]
 ```
+
+> **Academic Report Vector Graphic (Level 0 DFD):** Formatted matching standard report specifications: [docs/dfd_level_0.svg](file:///c:/Users/prath/OneDrive/Documents/1/MCA%20Major%20Project/docs/dfd_level_0.svg).
 
 #### Level 1: Detailed Data Flow Diagram
 The Level 1 DFD decomposes the system into its operational subprocesses and data stores:
 
 ```mermaid
 flowchart TD
-    User["Employee Workstation"] -->|"1. Raw User Telemetry"| P1["1.0 Ingest Telemetry"]
-    P1 -->|"2. Validated Events"| DS1[("telemetry_logs")]
+    User["Corporate Employee"] -->|"1. Workstation actions"| P1["1.0 Ingest Telemetry"]
+    P1 -->|"2. Activity events"| DS1[("D1: telemetry_logs")]
 
-    DS1 -->|"3. Stream Event"| P2["2.0 Hybrid Risk Engine"]
+    DS1 -->|"3. Streamed events"| P2["2.0 Evaluate Policy Rules"]
+    DS2[("D2: system_rules & baselines")] -->|"4. Policy thresholds"| P2
     
-    DS2[("system_rules")] -->|"Rule Configs"| P2
-    DS3[("baseline_profiles")] -->|"User Means & StdDev"| P2
-    
-    P2 -->|"4. Calculated Score & Attribution"| P3["3.0 Threat Evaluator & Classifier"]
-    P3 -->|"5. Store Alert"| DS4[("anomaly_alerts")]
+    P2 -->|"5. Feature vectors"| P3["3.0 Isolation Forest ML"]
+    P3 -->|"6. Anomaly score"| P4["4.0 Dynamic Risk Synthesis"]
 
-    P3 -->|"6. If Score >= 75"| P4["4.0 Containment & Lock Manager"]
-    P4 -->|"7. Lock Signal (WebSocket)"| User
-    P4 -->|"8. Record Action"| DS5[("containment_actions")]
+    P4 -->|"7. Synthesized alert"| DS3[("D3: anomaly_alerts")]
+    P4 -->|"8. R >= 75 breach"| P5["5.0 Workstation Auto-Lock"]
+    P5 -->|"9. Lockdown signal"| User
 
-    Admin["Administrator"] -->|"9. Unlock Override Request"| P4
-    
-    P3 & P4 -->|"10. Signed Audit Event"| P5["5.0 SHA-256 Audit Chaining"]
-    P5 -->|"11. Append Block"| DS6[("audit_ledger")]
+    P4 & P5 -->|"10. Signed event logs"| P6["6.0 SHA-256 Audit Chaining"]
+    P6 -->|"11. Append Block"| DS4[("D4: audit_ledger")]
 
-    DS4 & DS6 -->|"12. Incident Feeds"| P6["6.0 SOC Dashboard Service"]
-    P6 -->|"13. Visualization & Reports"| Analyst["SOC Analyst"]
+    DS3 -->|"12. Real-time threat feed"| Analyst["SOC Analyst / Admin"]
+    Analyst -->|"13. Master Override Unlock"| P5
 ```
+
+> **Academic Report Vector Graphic (Level 1 DFD):** Formatted detailed process decomposition: [docs/dfd_level_1.svg](file:///c:/Users/prath/OneDrive/Documents/1/MCA%20Major%20Project/docs/dfd_level_1.svg).
 
 ---
 

@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 960" width="920" height="960" style="background-color: #ffffff;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      fill: #000000;
+      letter-spacing: 0.5px;
+    }
+    .entity-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 15px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .process-num {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 13px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .process-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 13.5px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .store-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 13px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .label-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 12px;
+      fill: #000000;
+    }
+    .border-line {
+      stroke: #000000;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .entity-box {
+      stroke: #000000;
+      stroke-width: 2;
+      fill: #ffffff;
+    }
+    .process-circle {
+      stroke: #000000;
+      stroke-width: 1.8;
+      fill: #ffffff;
+    }
+    .store-line {
+      stroke: #000000;
+      stroke-width: 1.8;
+    }
+    .flow-line {
+      stroke: #000000;
+      stroke-width: 1.5;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+  </style>
+
+  <!-- Outer Boundary Frame -->
+  <rect x="10" y="10" width="900" height="940" class="border-line" />
+
+  <!-- Diagram Title at Top Left -->
+  <text x="30" y="45" class="title-text">2.1  DATA FLOW DIAGRAM (LEVEL 1)</text>
+
+  <!-- ================= EXTERNAL ENTITY 1: CORPORATE EMPLOYEE (Top Left) ================= -->
+  <rect x="40" y="90" width="145" height="75" class="entity-box" />
+  <text x="112" y="120" class="entity-title">Corporate</text>
+  <text x="112" y="138" class="entity-title">Employee</text>
+
+
+  <!-- ================= EXTERNAL ENTITY 2: SOC ANALYST / ADMIN (Bottom Right) ================= -->
+  <rect x="735" y="790" width="145" height="75" class="entity-box" />
+  <text x="807" y="820" class="entity-title">SOC Analyst /</text>
+  <text x="807" y="838" class="entity-title">Administrator</text>
+
+
+  <!-- ================= PROCESS 1.0: INGEST TELEMETRY STREAM ================= -->
+  <circle cx="340" cy="127" r="50" class="process-circle" />
+  <text x="340" y="112" class="process-num">1.0</text>
+  <text x="340" y="128" class="process-title">Ingest</text>
+  <text x="340" y="144" class="process-title">Telemetry</text>
+
+
+  <!-- ================= DATA STORE D1: TELEMETRY LOGS ================= -->
+  <line x1="530" y1="110" x2="680" y2="110" class="store-line" />
+  <line x1="530" y1="145" x2="680" y2="145" class="store-line" />
+  <text x="605" y="127" class="store-text">D1: telemetry_logs</text>
+
+
+  <!-- ================= PROCESS 2.0: EVALUATE HYBRID RULES ================= -->
+  <circle cx="340" cy="290" r="52" class="process-circle" />
+  <text x="340" y="275" class="process-num">2.0</text>
+  <text x="340" y="291" class="process-title">Evaluate Policy</text>
+  <text x="340" y="307" class="process-title">Rules &amp; Limits</text>
+
+
+  <!-- ================= DATA STORE D2: SYSTEM RULES & BASELINES ================= -->
+  <line x1="530" y1="272" x2="710" y2="272" class="store-line" />
+  <line x1="530" y1="308" x2="710" y2="308" class="store-line" />
+  <text x="620" y="290" class="store-text">D2: system_rules &amp; baselines</text>
+
+
+  <!-- ================= PROCESS 3.0: ISOLATION FOREST ML ANOMALY ================= -->
+  <circle cx="340" cy="455" r="52" class="process-circle" />
+  <text x="340" y="440" class="process-num">3.0</text>
+  <text x="340" y="456" class="process-title">Isolation Forest</text>
+  <text x="340" y="472" class="process-title">ML Scoring</text>
+
+
+  <!-- ================= PROCESS 4.0: DYNAMIC RISK SCORE SYNTHESIS ================= -->
+  <circle cx="340" cy="620" r="54" class="process-circle" />
+  <text x="340" y="605" class="process-num">4.0</text>
+  <text x="340" y="621" class="process-title">Synthesize Dynamic</text>
+  <text x="340" y="637" class="process-title">Risk Score (R)</text>
+
+
+  <!-- ================= DATA STORE D3: ANOMALY ALERTS ================= -->
+  <line x1="530" y1="602" x2="690" y2="602" class="store-line" />
+  <line x1="530" y1="638" x2="690" y2="638" class="store-line" />
+  <text x="610" y="620" class="store-text">D3: anomaly_alerts</text>
+
+
+  <!-- ================= PROCESS 5.0: AUTOMATED WORKSTATION CONTAINMENT ================= -->
+  <circle cx="112" cy="620" r="54" class="process-circle" />
+  <text x="112" y="605" class="process-num">5.0</text>
+  <text x="112" y="621" class="process-title">Workstation Auto-</text>
+  <text x="112" y="637" class="process-title">Lock &amp; Quarantine</text>
+
+
+  <!-- ================= PROCESS 6.0: SHA-256 AUDIT CHAINING ================= -->
+  <circle cx="340" cy="790" r="52" class="process-circle" />
+  <text x="340" y="775" class="process-num">6.0</text>
+  <text x="340" y="791" class="process-title">SHA-256 Cryptographic</text>
+  <text x="340" y="807" class="process-title">Audit Chaining</text>
+
+
+  <!-- ================= DATA STORE D4: AUDIT LEDGER ================= -->
+  <line x1="510" y1="772" x2="680" y2="772" class="store-line" />
+  <line x1="510" y1="808" x2="680" y2="808" class="store-line" />
+  <text x="595" y="790" class="store-text">D4: audit_ledger</text>
+
+
+  <!-- ================= CONNECTING DATA FLOWS ================= -->
+
+  <!-- Employee -> 1.0 (Workstation actions) -->
+  <line x1="185" y1="127" x2="280" y2="127" class="flow-line" />
+  <text x="195" y="118" class="label-text">Workstation actions</text>
+
+  <!-- 1.0 -> D1 (Validated activity records) -->
+  <line x1="390" y1="127" x2="520" y2="127" class="flow-line" />
+  <text x="405" y="118" class="label-text">Activity events</text>
+
+  <!-- D1 -> 2.0 (Streamed events) -->
+  <path d="M 580 145 L 580 200 L 392 270" class="flow-line" />
+  <text x="500" y="215" class="label-text">Streamed event</text>
+
+  <!-- D2 -> 2.0 (Active security rules) -->
+  <line x1="530" y1="290" x2="402" y2="290" class="flow-line" />
+  <text x="425" y="280" class="label-text">Policy thresholds</text>
+
+  <!-- 2.0 -> 3.0 (Behavioral vector) -->
+  <line x1="340" y1="342" x2="340" y2="393" class="flow-line" />
+  <text x="348" y="370" class="label-text">Feature vector</text>
+
+  <!-- 3.0 -> 4.0 (ML anomaly score) -->
+  <line x1="340" y1="507" x2="340" y2="556" class="flow-line" />
+  <text x="348" y="535" class="label-text">Anomaly score</text>
+
+  <!-- 4.0 -> D3 (High risk alert) -->
+  <line x1="394" y1="620" x2="520" y2="620" class="flow-line" />
+  <text x="410" y="612" class="label-text">Synthesized alert</text>
+
+  <!-- 4.0 -> 5.0 (Critical score R >= 75) -->
+  <line x1="286" y1="620" x2="176" y2="620" class="flow-line" />
+  <text x="190" y="612" class="label-text">R &gt;= 75 breach</text>
+
+  <!-- 5.0 -> Employee (Containment lockdown) -->
+  <path d="M 112 566 L 112 175" class="flow-line" />
+  <text x="35" y="360" class="label-text">Lockdown signal</text>
+  <text x="35" y="376" class="label-text">(Desktop Locked)</text>
+
+  <!-- 4.0 -> 6.0 (Security events to audit) -->
+  <line x1="340" y1="674" x2="340" y2="728" class="flow-line" />
+  <text x="348" y="705" class="label-text">Alert event</text>
+
+  <!-- 5.0 -> 6.0 (Containment event to audit) -->
+  <path d="M 112 674 L 112 790 L 278 790" class="flow-line" />
+  <text x="135" y="780" class="label-text">Lock action log</text>
+
+  <!-- 6.0 -> D4 (Append SHA-256 block) -->
+  <line x1="392" y1="790" x2="500" y2="790" class="flow-line" />
+  <text x="410" y="780" class="label-text">Block (H_i)</text>
+
+  <!-- D3 -> SOC Analyst (Alert feeds) -->
+  <path d="M 680 638 L 807 638 L 807 780" class="flow-line" />
+  <text x="730" y="715" class="label-text">Live threat feed &amp;</text>
+  <text x="730" y="731" class="label-text">SHAP attribution</text>
+
+  <!-- SOC Analyst -> 5.0 (Admin override unlock) -->
+  <path d="M 807 865 L 807 910 L 112 910 L 112 684" class="flow-line" />
+  <text x="420" y="902" class="label-text">Master Administrator Override Unlock</text>
+
+</svg>

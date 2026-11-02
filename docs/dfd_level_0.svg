@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 880" width="620" height="880" style="background-color: #ffffff;">
+  <defs>
+    <!-- Sharp black marker for arrows -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 21px;
+      font-weight: bold;
+      fill: #000000;
+      letter-spacing: 0.5px;
+    }
+    .entity-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 16px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .process-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 15.5px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .label-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 12.5px;
+      fill: #000000;
+    }
+    .label-center {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 12.5px;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .border-line {
+      stroke: #000000;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .entity-box {
+      stroke: #000000;
+      stroke-width: 2;
+      fill: #ffffff;
+    }
+    .process-circle {
+      stroke: #000000;
+      stroke-width: 2;
+      fill: #ffffff;
+    }
+    .flow-line {
+      stroke: #000000;
+      stroke-width: 1.6;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+  </style>
+
+  <!-- Outer Boundary Frame -->
+  <rect x="10" y="10" width="600" height="860" class="border-line" />
+
+  <!-- Diagram Title at Top Left -->
+  <text x="30" y="45" class="title-text">2.  DATA FLOW DIAGRAM (LEVEL 0)</text>
+
+  <!-- ================= ENTITY 1: USER / EMPLOYEE (Left) ================= -->
+  <rect x="40" y="210" width="125" height="95" class="entity-box" />
+  <text x="102" y="250" class="entity-title">User /</text>
+  <text x="102" y="270" class="entity-title">Employee</text>
+
+
+  <!-- ================= DATA STORE: MODEL & RULES DB (Top Right Cylinder) ================= -->
+  <!-- Cylinder top ellipse -->
+  <path d="M 440 185 C 440 170 570 170 570 185 C 570 200 440 200 440 185 Z" class="entity-box" />
+  <!-- Cylinder body -->
+  <path d="M 440 185 L 440 255 C 440 270 570 270 570 255 L 570 185" class="entity-box" />
+  <!-- Cylinder lower rim arc -->
+  <path d="M 440 220 C 440 235 570 235 570 220" stroke="#000000" stroke-width="1.8" fill="none" />
+  <text x="505" y="235" class="entity-title">Model &amp;</text>
+  <text x="505" y="255" class="entity-title">Rules</text>
+
+
+  <!-- ================= CENTRAL PROCESS: 0.0 UBA-SENTINEL ================= -->
+  <circle cx="340" cy="450" r="105" class="process-circle" />
+  <text x="340" y="425" class="process-title">UBA-Sentinel:</text>
+  <text x="340" y="447" class="process-title">Detect and</text>
+  <text x="340" y="469" class="process-title">Contain Insider</text>
+  <text x="340" y="491" class="process-title">Threats</text>
+
+
+  <!-- ================= ENTITY 2: HYBRID ML ENGINE (Bottom) ================= -->
+  <rect x="250" y="700" width="180" height="90" class="entity-box" />
+  <text x="340" y="738" class="entity-title">Hybrid ML Engine</text>
+  <text x="340" y="758" class="entity-title">(Isolation Forest)</text>
+
+
+  <!-- ================= FLOW LINES & LABELS ================= -->
+
+  <!-- 1. From User to Process (Submitted activity) -->
+  <path d="M 165 240 L 265 240 L 300 355" class="flow-line" />
+  <text x="180" y="230" class="label-text">Submitted</text>
+  <text x="180" y="246" class="label-text">activity</text>
+
+  <!-- 2. From Process to User (Risk and containment results) -->
+  <path d="M 240 450 L 105 450 L 105 315" class="flow-line" />
+  <text x="80" y="435" class="label-text">Risk &amp; containment</text>
+  <text x="80" y="452" class="label-text">results (Lockdown)</text>
+
+  <!-- 3. From Process to DB (Model / rule lookup) -->
+  <path d="M 405 370 L 460 300 L 460 270" class="flow-line" />
+  <text x="395" y="320" class="label-text">Model / rule</text>
+  <text x="395" y="336" class="label-text">lookup</text>
+
+  <!-- 4. From DB to Process (Baseline & policy response) -->
+  <path d="M 505 270 L 505 390 L 445 425" class="flow-line" />
+  <text x="515" y="340" class="label-text">Policies &amp;</text>
+  <text x="515" y="356" class="label-text">baselines</text>
+
+  <!-- 5. From Process to Hybrid ML Engine (Telemetry features) -->
+  <path d="M 310 555 L 310 690" class="flow-line" />
+  <text x="235" y="630" class="label-text">Telemetry</text>
+  <text x="235" y="646" class="label-text">features</text>
+
+  <!-- 6. From Hybrid ML Engine to Process (Anomaly score & attribution) -->
+  <path d="M 370 690 L 370 555" class="flow-line" />
+  <text x="380" y="630" class="label-text">Anomaly score</text>
+  <text x="380" y="646" class="label-text">&amp; attribution</text>
+
+</svg>
