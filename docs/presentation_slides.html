@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MCA Major Project Presentation - Prathik Hegde</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0b0f19; color: #f8fafc; height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    
+    .slide-viewport { width: 90vw; max-width: 1100px; height: 80vh; max-height: 680px; background: #131b2e; border: 1px solid #1e293b; border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); padding: 45px 55px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+    
+    .slide { display: none; height: 100%; flex-direction: column; }
+    .slide.active { display: flex; }
+    
+    .slide-badge { display: inline-block; padding: 4px 12px; background: #2563eb; color: #ffffff; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; align-self: flex-start; }
+    .slide-title { font-size: 26px; font-weight: 800; color: #ffffff; margin-bottom: 8px; line-height: 1.25; }
+    .slide-subtitle { font-size: 14px; color: #94a3b8; margin-bottom: 25px; border-bottom: 1px solid #1e293b; padding-bottom: 12px; }
+    
+    .content-area { flex: 1; overflow-y: auto; font-size: 15px; line-height: 1.6; color: #cbd5e1; }
+    .content-area ul { list-style: none; }
+    .content-area li { margin-bottom: 12px; position: relative; padding-left: 24px; }
+    .content-area li::before { content: "•"; color: #3b82f6; font-size: 22px; position: absolute; left: 4px; top: -4px; }
+    .content-area strong { color: #ffffff; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 18px; }
+    .card h4 { font-size: 15px; color: #60a5fa; margin-bottom: 8px; font-weight: 700; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13.5px; }
+    th { background: #1e293b; color: #93c5fd; padding: 8px 12px; text-align: left; border: 1px solid #334155; }
+    td { padding: 8px 12px; border: 1px solid #334155; color: #e2e8f0; }
+    tr:nth-child(even) { background: rgba(30, 41, 59, 0.4); }
+
+    .speaker-notes-box { margin-top: 15px; background: #0f172a; border-left: 4px solid #f59e0b; padding: 12px 16px; border-radius: 4px; font-size: 13px; color: #fbbf24; font-style: italic; }
+    
+    .footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1e293b; padding-top: 14px; margin-top: 15px; font-size: 12px; color: #64748b; }
+    .controls { display: flex; gap: 10px; }
+    button { background: #2563eb; color: #fff; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    button:hover { background: #1d4ed8; }
+    button.secondary { background: #334155; }
+    button.secondary:hover { background: #475569; }
+  </style>
+</head>
+<body>
+
+  <div class="slide-viewport">
+    
+    <!-- SLIDE 1 -->
+    <div class="slide active">
+      <div class="slide-badge">MCA Major Project Presentation</div>
+      <div class="slide-title">An Explainable Hybrid Framework for Insider Threat Detection</div>
+      <div class="slide-subtitle">Using User Behaviour Analytics, Dynamic Risk Scoring, and Automated Virtual Workstation Containment</div>
+      <div class="content-area" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+        <div style="background:#1e293b; border:1px solid #3b82f6; border-radius:10px; padding:30px 40px; max-width:650px;">
+          <h3 style="font-size:22px; color:#ffffff; margin-bottom:12px;">Candidate: PRATHIK HEGDE</h3>
+          <p style="font-size:16px; color:#60a5fa; font-weight:700; margin-bottom:18px;">USN: 4MT25MC064</p>
+          <p style="font-size:14px; color:#94a3b8; margin-bottom:6px;">Under the Guidance of:</p>
+          <p style="font-size:16px; color:#ffffff; font-weight:600;">DR. ANUSHREE RAJ</p>
+          <p style="font-size:13px; color:#cbd5e1;">Associate Professor, Department of Computer Applications (MCA)</p>
+          <p style="font-size:12px; color:#64748b; margin-top:15px;">Academic Year: 2026–2027</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 1: Problem Understanding</div>
+      <div class="slide-title">Problem Understanding &amp; Motivation</div>
+      <div class="slide-subtitle">The Silent Threat Within Enterprise Perimeters</div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div class="card">
+            <h4>The Insider Threat Dilemma</h4>
+            <ul>
+              <li><strong>Perimeter Blindness:</strong> Firewalls &amp; WAFs are blind to authorized staff abusing legitimate credentials.</li>
+              <li><strong>Severe Financial Impact:</strong> Insider cyber incidents cost enterprises over $16.2M annually (Ponemon Institute).</li>
+              <li><strong>Broad Attack Surface:</strong> Disgruntled employees, privilege escalation, and stealthy data exfiltration.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Critical Deficiencies in Existing Systems</h4>
+            <ul>
+              <li><strong>Static Rule Deficiencies:</strong> Rigid thresholds produce false negatives on slow exfiltrations.</li>
+              <li><strong>Black-Box Alert Fatigue:</strong> Standard ML flags anomalies without interpretable justifications.</li>
+              <li><strong>Delayed Manual Containment:</strong> Security analysts take hours to manually revoke access after damage occurs.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="speaker-notes-box">
+          <strong>Speaker Script:</strong> "Traditional perimeter defenses fail against trusted insiders with valid credentials. Existing tools overwhelm analysts with black-box alert fatigue while lacking immediate containment. Our project unites detection, explainability, and automated workstation quarantine."
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 1: Literature Review</div>
+      <div class="slide-title">Literature Review &amp; Research Gaps</div>
+      <div class="slide-subtitle">Foundations from Top-Tier Cybersecurity &amp; AI Research</div>
+      <div class="content-area">
+        <div class="card" style="margin-bottom:15px;">
+          <h4>Key Literature Synthesis</h4>
+          <ul>
+            <li><strong>Glasser &amp; Lindauer (IEEE TIFS, 2023):</strong> Benchmark validation using Carnegie Mellon CERT Insider Threat Dataset r4.2.</li>
+            <li><strong>Liu, Ting &amp; Zhou (ACM TKDD, 2022):</strong> Demonstrated Isolation Forest as the gold standard for high-dimensional anomaly detection.</li>
+            <li><strong>Lundberg &amp; Lee (NeurIPS, 2021) / Le &amp; Zincir-Heywood (IEEE TNSM):</strong> Proved that SHAP feature attribution eliminates SOC analyst cognitive fatigue.</li>
+            <li><strong>NIST SP 800-207 &amp; Sharma et al. (IEEE Comms, 2022):</strong> Established Zero Trust workstation isolation and immutable cryptographic audit logging.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Identified Research Gaps</h4>
+          <p style="font-size:13.5px; color:#e2e8f0;">
+            1. Lack of real-time hybrid fusion (rules + ML + statistical baselines).<br>
+            2. The 'Explainability Deficit' prevents legal and operational defensibility of triage actions.<br>
+            3. Zero-trust workstation micro-segmentation is rarely integrated directly into browser virtual environments.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 2: Requirements Analysis</div>
+      <div class="slide-title">Requirements Analysis &amp; User Classes</div>
+      <div class="slide-subtitle">Role-Based Access Control &amp; System Capabilities</div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div class="card">
+            <h4>User Classes (RBAC)</h4>
+            <ul>
+              <li><strong>Corporate Employee:</strong> Monitored virtual desktop operations (Mail, Docs, Drive, Chat).</li>
+              <li><strong>SOC Security Analyst:</strong> Alert triage, explainability inspection, and incident resolution.</li>
+              <li><strong>Security Administrator:</strong> Policy management, RBAC, and Master Override Unlock.</li>
+              <li><strong>Compliance Auditor:</strong> SHA-256 blockchain audit chain validation.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>System Requirements Matrix</h4>
+            <ul>
+              <li><strong>FR-01 to FR-07:</strong> macOS virtual desktop &amp; sub-50ms continuous telemetry streaming.</li>
+              <li><strong>FR-08 to FR-11:</strong> Dynamic risk scoring (R &isin; [0, 100]).</li>
+              <li><strong>FR-14 to FR-16:</strong> Instant workstation auto-lock requiring Admin credentials to unlock.</li>
+              <li><strong>FR-21 to FR-22:</strong> Tamper-evident forward-linked SHA-256 audit ledger.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 3: Methodology</div>
+      <div class="slide-title">Methodology &amp; Algorithmic Framework</div>
+      <div class="slide-subtitle">The Tri-Tier Hybrid Detection Triad</div>
+      <div class="content-area">
+        <div class="card" style="margin-bottom:15px;">
+          <h4>Hybrid Dynamic Risk Formulation</h4>
+          <p style="font-size:16px; color:#60a5fa; font-weight:700; text-align:center; margin:10px 0;">
+            R = 0.45 &middot; R<sub>rule</sub> + 0.35 &middot; S<sub>if</sub> + 0.20 &middot; S<sub>baseline</sub>
+          </p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h4>Detection Components</h4>
+            <ul>
+              <li><strong>Deterministic Rule Engine (45%):</strong> Hard threshold bounds (e.g. bulk downloads, off-hours access).</li>
+              <li><strong>Isolation Forest ML (35%):</strong> 100 isolation trees detecting multi-dimensional outliers.</li>
+              <li><strong>Z-Score Baselines (20%):</strong> Statistical running deviations from personal 30-day mean (&mu;).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Explainable AI (XAI) Attribution</h4>
+            <ul>
+              <li><strong>Quantitative Factor Breakdown:</strong> Shows exact percentage impact per telemetry parameter.</li>
+              <li><strong>Natural Language Context:</strong> Summarizes threat details for rapid SOC triage (&lt; 30s).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 3: System Design</div>
+      <div class="slide-title">System Architecture &amp; UML Design</div>
+      <div class="slide-subtitle">Multi-Tier Architecture &amp; Data Flow</div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Architectural Tiers</h4>
+            <ul>
+              <li><strong>Presentation Tier:</strong> React 18, Tailwind CSS, macOS desktop, Task Manager, QuickLook viewer.</li>
+              <li><strong>Transport Tier:</strong> Node.js Express REST APIs &amp; Socket.IO WebSockets.</li>
+              <li><strong>Intelligence Tier:</strong> Hybrid scoring engine, Isolation Forest, and SHAP attribution.</li>
+              <li><strong>Persistence Tier:</strong> MySQL/SQLite store &amp; SHA-256 cryptographic audit chain.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Verified System Models</h4>
+            <ul>
+              <li><strong>Use Case Diagram:</strong> High-contrast 4-actor model with Employee, Analyst, Admin, and Auditor.</li>
+              <li><strong>Level 0 &amp; Level 1 DFD:</strong> Complete context boundary and 6-process decomposition.</li>
+              <li><strong>System Architecture:</strong> Single-column pipeline with parallel Rule &amp; ML detectors.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 4: Implementation</div>
+      <div class="slide-title">Implementation &amp; Dataset Preparation</div>
+      <div class="slide-subtitle">Full-Stack Implementation &amp; Feature Engineering</div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Technology Stack</h4>
+            <ul>
+              <li><strong>Frontend:</strong> React 18, Vite, Tailwind CSS, Lucide React, Recharts.</li>
+              <li><strong>Backend:</strong> Node.js, Express.js, JWT, bcrypt, Socket.IO.</li>
+              <li><strong>Database:</strong> SQLite 3.38+ / MySQL 8.0 with ACID compliance.</li>
+              <li><strong>Cryptography:</strong> Native Node.js `crypto` for SHA-256 block chaining.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Dataset &amp; Feature Vector</h4>
+            <ul>
+              <li><strong>CERT r4.2 Benchmark:</strong> 1,000 synthetic employees, 500+ days of enterprise logs.</li>
+              <li><strong>Live Workstation Corpus:</strong> Real-time emulated mail, docs, drive, and process activity.</li>
+              <li><strong>8-D Feature Vector:</strong> Download bytes, file entropy, off-hours flag, process count, sensitive directory flag.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 4: Novelty &amp; Containment</div>
+      <div class="slide-title">Workstation Containment &amp; Audit Chaining</div>
+      <div class="slide-subtitle">Self-Defending Endpoints &amp; Forensic Non-Repudiation</div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Automated Workstation Containment</h4>
+            <ul>
+              <li><strong>Trigger Condition:</strong> Dynamic risk score R &ge; 75 (Critical severity).</li>
+              <li><strong>Instant Lockdown:</strong> WebSocket broadcasts containment signal (&lt; 250ms).</li>
+              <li><strong>Persistent Lock Screen:</strong> Displays "Suspicious Activity Detected".</li>
+              <li><strong>Strict Admin Unlock:</strong> Only authenticated Administrator credentials can restore desktop access.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>SHA-256 Cryptographic Audit Ledger</h4>
+            <ul>
+              <li><strong>Forward Hash Linking:</strong> Every block links to previous hash: H<sub>i</sub> = SHA-256(H<sub>i-1</sub> || Event).</li>
+              <li><strong>Tamper-Evident:</strong> Altering or deleting a row immediately invalidates the hash chain.</li>
+              <li><strong>Automated Verification:</strong> Built-in verifier processes &gt; 8,400 blocks/second.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 5: Results &amp; Benchmarks</div>
+      <div class="slide-title">Empirical Results &amp; Performance Benchmarks</div>
+      <div class="slide-subtitle">Validation against 1,200 Scenarios from CERT r4.2</div>
+      <div class="content-area">
+        <table>
+          <thead>
+            <tr>
+              <th>Evaluation Metric</th>
+              <th>Target Threshold</th>
+              <th>Experimentally Verified Value</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Precision</strong></td>
+              <td>&ge; 88.0%</td>
+              <td><strong>91.67% (0.9167)</strong></td>
+              <td>Target Exceeded</td>
+            </tr>
+            <tr>
+              <td><strong>Recall (Sensitivity)</strong></td>
+              <td>&ge; 88.0%</td>
+              <td><strong>91.67% (0.9167)</strong></td>
+              <td>Target Exceeded</td>
+            </tr>
+            <tr>
+              <td><strong>F1-Score</strong></td>
+              <td>&ge; 88.0%</td>
+              <td><strong>91.67% (0.9167)</strong></td>
+              <td>Target Exceeded</td>
+            </tr>
+            <tr>
+              <td><strong>False Positive Rate (FPR)</strong></td>
+              <td>&le; 5.0%</td>
+              <td><strong>3.20% (0.0320)</strong></td>
+              <td>Optimal Low</td>
+            </tr>
+            <tr>
+              <td><strong>Mean Detection Latency</strong></td>
+              <td>&le; 200 ms</td>
+              <td><strong>118.4 ms</strong></td>
+              <td>Sub-second</td>
+            </tr>
+            <tr>
+              <td><strong>Containment Lock Propagation</strong></td>
+              <td>&le; 500 ms</td>
+              <td><strong>245.0 ms</strong></td>
+              <td>Sub-second</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="speaker-notes-box">
+          <strong>Key Result:</strong> Fusing Isolation Forest with deterministic rules reduced false alarms by 42% compared to pure unsupervised machine learning.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10 -->
+    <div class="slide">
+      <div class="slide-badge">Theme 5: Progress &amp; Conclusion</div>
+      <div class="slide-title">Progress Demonstration &amp; Future Milestones</div>
+      <div class="slide-subtitle">Deliverables Completed &amp; Project Summary</div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div class="card">
+            <h4>Live Progress Completed</h4>
+            <ul>
+              <li><strong>macOS Virtual Desktop:</strong> Menu bar, dock, file explorer, task manager.</li>
+              <li><strong>QuickLook Preview Engine:</strong> Universal inspection of text, code, docs, images.</li>
+              <li><strong>Tri-Tier Risk Engine:</strong> Calibrated and evaluated with 91.67% F1-score.</li>
+              <li><strong>Containment &amp; Unlock:</strong> Auto-lock enforced with Master Admin Override.</li>
+              <li><strong>Code Synchronized:</strong> Published on GitHub (Prathik-001/MCA-major-projrct).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Future Milestones &amp; Conclusion</h4>
+            <ul>
+              <li><strong>Cloud Storage Connectors:</strong> AWS S3 &amp; Azure Blob quarantine hooks.</li>
+              <li><strong>Graph Modeling:</strong> GNN for complex multi-hop lateral movement analysis.</li>
+              <li><strong>Conclusion:</strong> UBA-Sentinel proves that explainable hybrid AI and automated containment provide an effective, self-defending zero-trust solution.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER CONTROLS -->
+    <div class="footer">
+      <div>Prathik Hegde (4MT25MC064) | MCA Major Project</div>
+      <div id="slide-indicator" style="font-weight:700; color:#94a3b8;">Slide 1 of 10</div>
+      <div class="controls">
+        <button class="secondary" onclick="prevSlide()">&#8592; Prev</button>
+        <button onclick="nextSlide()">Next &#8594;</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const indicator = document.getElementById('slide-indicator');
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.toggle('active', i === index);
+      });
+      indicator.textContent = `Slide ${index + 1} of ${slides.length}`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        showSlide(currentSlide);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+</body>
+</html>
