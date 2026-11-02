@@ -283,31 +283,57 @@ The software does not require specialized hardware appliances. It operates on st
 
 ```mermaid
 flowchart LR
-    User["User /<br/>Analyst"]
+    subgraph Actors_Left["User & Audit Actors"]
+        Emp["Corporate<br/>Employee"]
+        Auditor["Compliance<br/>Auditor"]
+    end
 
     subgraph System["UBA-Sentinel System"]
         direction TB
-        UC1(["Submit Workstation Activity"])
-        UC2(["Analyze User Behaviour"])
-        UC3(["View Risk Level"])
-        UC4(["Review Suspicious Activities"])
-        UC5(["Explain Risk Attribution"])
-        UC6(["Auto-Lock Quarantined System"])
-        UC7(["View Evaluation Metrics"])
-        UC8(["View Audit History (Optional)"])
+        UC1(["Authenticate & Launch Desktop"])
+        UC2(["Execute Workstation Workflows"])
+        UC3(["QuickLook File Preview"])
+        UC4(["Submit Telemetry Stream"])
+        UC5(["Analyze User Behaviour"])
+        UC6(["View Dynamic Risk Level"])
+        UC7(["Review Suspicious Activities"])
+        UC8(["Explain Risk Attribution"])
+        UC9(["Auto-Lock Quarantined System"])
+        UC10(["Admin Override Unlock"])
+        UC11(["Configure Rules & User Roles"])
+        UC12(["Verify Audit Ledger Integrity"])
     end
 
-    User --> UC1
-    User --> UC2
-    User --> UC3
-    User --> UC4
-    User --> UC5
-    User --> UC6
-    User --> UC7
-    User --> UC8
+    subgraph Actors_Right["Security & Governance Actors"]
+        Analyst["SOC<br/>Analyst"]
+        Admin["Security<br/>Administrator"]
+    end
+
+    %% Employee Connections
+    Emp --> UC1
+    Emp --> UC2
+    Emp --> UC3
+    Emp --> UC4
+    Emp --> UC9
+
+    %% Auditor Connection
+    Auditor --> UC12
+
+    %% SOC Analyst Connections
+    Analyst --> UC4
+    Analyst --> UC5
+    Analyst --> UC6
+    Analyst --> UC7
+    Analyst --> UC8
+
+    %% Administrator Connections
+    Admin --> UC9
+    Admin --> UC10
+    Admin --> UC11
+    Admin --> UC12
 ```
 
-> **Academic Report Vector Graphic:** The publication-formatted vector diagram matching standard report specifications is available at [docs/use_case_diagram_format.svg](file:///c:/Users/prath/OneDrive/Documents/1/MCA%20Major%20Project/docs/use_case_diagram_format.svg).
+> **Academic Report Vector Graphic (All 4 Actors):** The publication-formatted vector diagram matching standard report specifications with Corporate Employee, SOC Analyst, Security Administrator, and Compliance Auditor is available at [docs/use_case_diagram_4_actors.svg](file:///c:/Users/prath/OneDrive/Documents/1/MCA%20Major%20Project/docs/use_case_diagram_4_actors.svg).
 
 #### Detailed Use Case Specifications:
 

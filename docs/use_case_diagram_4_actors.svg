@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 940" width="920" height="940" style="background-color: #ffffff;">
+  <style>
+    .title-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 22px;
+      font-weight: bold;
+      fill: #000000;
+      letter-spacing: 0.5px;
+    }
+    .system-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 19px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .actor-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 14.5px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .usecase-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 13.5px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .border-line {
+      stroke: #000000;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .system-box {
+      stroke: #000000;
+      stroke-width: 2;
+      fill: #ffffff;
+    }
+    .stick-figure {
+      stroke: #000000;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .stick-head {
+      stroke: #000000;
+      stroke-width: 2;
+      fill: #ffffff;
+    }
+    .usecase-oval {
+      stroke: #000000;
+      stroke-width: 1.8;
+      fill: #ffffff;
+    }
+    .connector-line {
+      stroke: #000000;
+      stroke-width: 1.5;
+    }
+  </style>
+
+  <!-- Outer Boundary Frame -->
+  <rect x="10" y="10" width="900" height="920" class="border-line" />
+
+  <!-- Diagram Title at Top Left -->
+  <text x="30" y="45" class="title-text">1.  USE CASE  DIAGRAM</text>
+
+  <!-- System Boundary Box in Center -->
+  <rect x="235" y="65" width="450" height="845" class="system-box" />
+
+  <!-- System Title at Top of Boundary Box -->
+  <text x="460" y="98" class="system-title">UBA-Sentinel System</text>
+
+
+  <!-- ================= ACTOR 1: CORPORATE EMPLOYEE (Top Left) ================= -->
+  <circle cx="115" cy="180" r="18" class="stick-head" />
+  <line x1="115" y1="198" x2="115" y2="255" class="stick-figure" />
+  <line x1="75" y1="218" x2="155" y2="218" class="stick-figure" />
+  <line x1="115" y1="255" x2="90" y2="305" class="stick-figure" />
+  <line x1="115" y1="255" x2="140" y2="305" class="stick-figure" />
+  <text x="115" y="328" class="actor-text">Corporate</text>
+  <text x="115" y="348" class="actor-text">Employee</text>
+
+
+  <!-- ================= ACTOR 2: COMPLIANCE AUDITOR (Bottom Left) ================= -->
+  <circle cx="115" cy="690" r="18" class="stick-head" />
+  <line x1="115" y1="708" x2="115" y2="765" class="stick-figure" />
+  <line x1="75" y1="728" x2="155" y2="728" class="stick-figure" />
+  <line x1="115" y1="765" x2="90" y2="815" class="stick-figure" />
+  <line x1="115" y1="765" x2="140" y2="815" class="stick-figure" />
+  <text x="115" y="838" class="actor-text">Compliance</text>
+  <text x="115" y="858" class="actor-text">Auditor</text>
+
+
+  <!-- ================= ACTOR 3: SOC ANALYST (Top Right) ================= -->
+  <circle cx="805" cy="190" r="18" class="stick-head" />
+  <line x1="805" y1="208" x2="805" y2="265" class="stick-figure" />
+  <line x1="765" y1="228" x2="845" y2="228" class="stick-figure" />
+  <line x1="805" y1="265" x2="780" y2="315" class="stick-figure" />
+  <line x1="805" y1="265" x2="830" y2="315" class="stick-figure" />
+  <text x="805" y="338" class="actor-text">SOC</text>
+  <text x="805" y="358" class="actor-text">Analyst</text>
+
+
+  <!-- ================= ACTOR 4: SECURITY ADMINISTRATOR (Bottom Right) ================= -->
+  <circle cx="805" cy="660" r="18" class="stick-head" />
+  <line x1="805" y1="678" x2="805" y2="735" class="stick-figure" />
+  <line x1="765" y1="698" x2="845" y2="698" class="stick-figure" />
+  <line x1="805" y1="735" x2="780" y2="785" class="stick-figure" />
+  <line x1="805" y1="735" x2="830" y2="785" class="stick-figure" />
+  <text x="805" y="808" class="actor-text">Security</text>
+  <text x="805" y="828" class="actor-text">Administrator</text>
+
+
+  <!-- ================= 12 USE CASE OVALS (Vertical Stack) ================= -->
+  <!-- Oval 1: cy = 135 -->
+  <ellipse cx="460" cy="135" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="135" class="usecase-text">Authenticate &amp; Launch Desktop</text>
+
+  <!-- Oval 2: cy = 200 -->
+  <ellipse cx="460" cy="200" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="200" class="usecase-text">Execute Workstation Workflows</text>
+
+  <!-- Oval 3: cy = 265 -->
+  <ellipse cx="460" cy="265" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="265" class="usecase-text">QuickLook File Preview</text>
+
+  <!-- Oval 4: cy = 330 -->
+  <ellipse cx="460" cy="330" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="330" class="usecase-text">Submit Telemetry Stream</text>
+
+  <!-- Oval 5: cy = 395 -->
+  <ellipse cx="460" cy="395" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="395" class="usecase-text">Analyze User Behaviour</text>
+
+  <!-- Oval 6: cy = 460 -->
+  <ellipse cx="460" cy="460" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="460" class="usecase-text">View Dynamic Risk Level</text>
+
+  <!-- Oval 7: cy = 525 -->
+  <ellipse cx="460" cy="525" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="525" class="usecase-text">Review Suspicious Activities</text>
+
+  <!-- Oval 8: cy = 590 -->
+  <ellipse cx="460" cy="590" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="590" class="usecase-text">Explain Risk Attribution</text>
+
+  <!-- Oval 9: cy = 655 -->
+  <ellipse cx="460" cy="655" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="655" class="usecase-text">Auto-Lock Quarantined System</text>
+
+  <!-- Oval 10: cy = 720 -->
+  <ellipse cx="460" cy="720" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="720" class="usecase-text">Admin Override Unlock</text>
+
+  <!-- Oval 11: cy = 785 -->
+  <ellipse cx="460" cy="785" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="785" class="usecase-text">Configure Rules &amp; User Roles</text>
+
+  <!-- Oval 12: cy = 850 -->
+  <ellipse cx="460" cy="850" rx="180" ry="22" class="usecase-oval" />
+  <text x="460" y="850" class="usecase-text">Verify Audit Ledger Integrity</text>
+
+
+  <!-- ================= CONNECTOR LINES: CORPORATE EMPLOYEE (Left) ================= -->
+  <!-- Hand at (155, 218) -->
+  <line x1="155" y1="218" x2="280" y2="135" class="connector-line" />
+  <line x1="155" y1="218" x2="280" y2="200" class="connector-line" />
+  <line x1="155" y1="218" x2="280" y2="265" class="connector-line" />
+  <line x1="155" y1="218" x2="280" y2="330" class="connector-line" />
+  <line x1="155" y1="218" x2="280" y2="655" class="connector-line" />
+
+
+  <!-- ================= CONNECTOR LINES: COMPLIANCE AUDITOR (Left) ================= -->
+  <!-- Hand at (155, 728) -->
+  <line x1="155" y1="728" x2="280" y2="850" class="connector-line" />
+
+
+  <!-- ================= CONNECTOR LINES: SOC ANALYST (Right) ================= -->
+  <!-- Hand at (765, 228) -->
+  <line x1="765" y1="228" x2="640" y2="330" class="connector-line" />
+  <line x1="765" y1="228" x2="640" y2="395" class="connector-line" />
+  <line x1="765" y1="228" x2="640" y2="460" class="connector-line" />
+  <line x1="765" y1="228" x2="640" y2="525" class="connector-line" />
+  <line x1="765" y1="228" x2="640" y2="590" class="connector-line" />
+
+
+  <!-- ================= CONNECTOR LINES: SECURITY ADMINISTRATOR (Right) ================= -->
+  <!-- Hand at (765, 698) -->
+  <line x1="765" y1="698" x2="640" y2="655" class="connector-line" />
+  <line x1="765" y1="698" x2="640" y2="720" class="connector-line" />
+  <line x1="765" y1="698" x2="640" y2="785" class="connector-line" />
+  <line x1="765" y1="698" x2="640" y2="850" class="connector-line" />
+
+</svg>
