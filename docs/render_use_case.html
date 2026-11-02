@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #ffffff; display: flex; justify-content: flex-start; align-items: flex-start; }
+    svg { display: block; }
+  </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 880" width="560" height="880" style="background-color: #ffffff;">
+  <style>
+    .title-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 20px;
+      font-weight: bold;
+      fill: #000000;
+      letter-spacing: 0.5px;
+    }
+    .system-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 18px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .actor-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 15px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .usecase-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 14.5px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .border-line {
+      stroke: #000000;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .system-box {
+      stroke: #000000;
+      stroke-width: 2;
+      fill: #ffffff;
+    }
+    .stick-figure {
+      stroke: #000000;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .stick-head {
+      stroke: #000000;
+      stroke-width: 2;
+      fill: #ffffff;
+    }
+    .usecase-oval {
+      stroke: #000000;
+      stroke-width: 1.8;
+      fill: #ffffff;
+    }
+    .connector-line {
+      stroke: #000000;
+      stroke-width: 1.6;
+    }
+  </style>
+
+  <!-- Outer Boundary Frame -->
+  <rect x="8" y="8" width="544" height="864" class="border-line" />
+
+  <!-- Diagram Title at Top Left -->
+  <text x="24" y="40" class="title-text">1.  USE CASE  DIAGRAM</text>
+
+  <!-- System Boundary Box -->
+  <rect x="175" y="65" width="360" height="785" class="system-box" />
+
+  <!-- System Title at Top of Boundary Box -->
+  <text x="355" y="98" class="system-title">UBA-Sentinel System</text>
+
+  <!-- ================= STICK FIGURE: USER / ANALYST ================= -->
+  <!-- Head -->
+  <circle cx="85" cy="415" r="18" class="stick-head" />
+  <!-- Spine -->
+  <line x1="85" y1="433" x2="85" y2="495" class="stick-figure" />
+  <!-- Arms -->
+  <line x1="45" y1="455" x2="125" y2="455" class="stick-figure" />
+  <!-- Left Leg -->
+  <line x1="85" y1="495" x2="60" y2="545" class="stick-figure" />
+  <!-- Right Leg -->
+  <line x1="85" y1="495" x2="110" y2="545" class="stick-figure" />
+
+  <!-- Actor Label Underneath -->
+  <text x="85" y="570" class="actor-text">User /</text>
+  <text x="85" y="588" class="actor-text">Analyst</text>
+
+  <!-- ================= USE CASE OVALS (8 Ovals) ================= -->
+  
+  <!-- 1. Submit Workstation Activity -->
+  <ellipse cx="355" cy="145" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="145" class="usecase-text">Submit Workstation Activity</text>
+
+  <!-- 2. Analyze User Behaviour -->
+  <ellipse cx="355" cy="230" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="230" class="usecase-text">Analyze User Behaviour</text>
+
+  <!-- 3. View Risk Level -->
+  <ellipse cx="355" cy="315" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="315" class="usecase-text">View Risk Level</text>
+
+  <!-- 4. Review Suspicious Activities -->
+  <ellipse cx="355" cy="400" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="400" class="usecase-text">Review Suspicious Activities</text>
+
+  <!-- 5. Explain Risk Attribution -->
+  <ellipse cx="355" cy="485" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="485" class="usecase-text">Explain Risk Attribution</text>
+
+  <!-- 6. Auto-Lock Quarantined System -->
+  <ellipse cx="355" cy="570" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="570" class="usecase-text">Auto-Lock Quarantined System</text>
+
+  <!-- 7. View Evaluation Metrics -->
+  <ellipse cx="355" cy="655" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="655" class="usecase-text">View Evaluation Metrics</text>
+
+  <!-- 8. View Audit History (Optional) -->
+  <ellipse cx="355" cy="740" rx="145" ry="24" class="usecase-oval" />
+  <text x="355" y="740" class="usecase-text">View Audit History (Optional)</text>
+
+  <!-- ================= RADIATING CONNECTOR LINES ================= -->
+  <line x1="125" y1="455" x2="210" y2="145" class="connector-line" />
+  <line x1="125" y1="455" x2="210" y2="230" class="connector-line" />
+  <line x1="125" y1="455" x2="210" y2="315" class="connector-line" />
+  <line x1="125" y1="455" x2="210" y2="400" class="connector-line" />
+  <line x1="125" y1="455" x2="210" y2="485" class="connector-line" />
+  <line x1="125" y1="455" x2="210" y2="570" class="connector-line" />
+  <line x1="125" y1="455" x2="210" y2="655" class="connector-line" />
+  <line x1="125" y1="455" x2="210" y2="740" class="connector-line" />
+</svg>
+</body>
+</html>

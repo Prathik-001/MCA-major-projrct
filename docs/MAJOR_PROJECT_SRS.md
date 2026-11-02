@@ -282,40 +282,32 @@ The software does not require specialized hardware appliances. It operates on st
 ### 6.1 Use Case Diagram and Specifications
 
 ```mermaid
-flowchart TD
-    subgraph Actors
-        Emp["Corporate Employee"]
-        Analyst["SOC Security Analyst"]
-        Admin["Security Administrator"]
-        Auditor["Compliance Auditor"]
+flowchart LR
+    User["User /<br/>Analyst"]
+
+    subgraph System["UBA-Sentinel System"]
+        direction TB
+        UC1(["Submit Workstation Activity"])
+        UC2(["Analyze User Behaviour"])
+        UC3(["View Risk Level"])
+        UC4(["Review Suspicious Activities"])
+        UC5(["Explain Risk Attribution"])
+        UC6(["Auto-Lock Quarantined System"])
+        UC7(["View Evaluation Metrics"])
+        UC8(["View Audit History (Optional)"])
     end
 
-    subgraph UBA_Sentinel_System["UBA Sentinel Core System"]
-        UC1(["Authenticate & Launch Workstation"])
-        UC2(["Execute Daily Workflows (Mail, Docs, Drive)"])
-        UC3(["Open & Inspect Files in QuickLook"])
-        UC4(["Trigger Telemetry Harvesting"])
-        UC5(["Evaluate Hybrid Threat Score"])
-        UC6(["Auto-Lock Suspicious Workstation"])
-        UC7(["Unlock Quarantined Workstation"])
-        UC8(["Triage Alerts & View Explainability"])
-        UC9(["Configure Security Rules & Baselines"])
-        UC10(["Verify Cryptographic Audit Trail"])
-    end
-
-    Emp --> UC1
-    Emp --> UC2
-    Emp --> UC3
-    UC2 & UC3 -.->|Include| UC4
-    UC4 --> UC5
-    UC5 -.->|On Critical Risk (R >= 75)| UC6
-    
-    Analyst --> UC8
-    Admin --> UC7
-    Admin --> UC9
-    Admin --> UC8
-    Auditor --> UC10
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+    User --> UC5
+    User --> UC6
+    User --> UC7
+    User --> UC8
 ```
+
+> **Academic Report Vector Graphic:** The publication-formatted vector diagram matching standard report specifications is available at [docs/use_case_diagram_format.svg](file:///c:/Users/prath/OneDrive/Documents/1/MCA%20Major%20Project/docs/use_case_diagram_format.svg).
 
 #### Detailed Use Case Specifications:
 
