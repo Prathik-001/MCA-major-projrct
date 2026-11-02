@@ -4,12 +4,12 @@
 ### AN EXPLAINABLE HYBRID FRAMEWORK FOR INSIDER THREAT DETECTION USING USER BEHAVIOUR ANALYTICS, DYNAMIC RISK SCORING, AND AUTOMATED VIRTUAL WORKSTATION CONTAINMENT
 
 **Submitted by:**  
-**SAMUEL JESTEN SERRAO**  
-**USN:** 4MT25MC079  
+**PRATHIK HEGDE**  
+**USN:** 4MT25MC064  
 
 **Under the Guidance of:**  
-**DR. CHANDRAKANTH T S / MS. SADHANA K**  
-Assistant Professor  
+**DR. ANUSHREE RAJ**  
+Associate Professor / Assistant Professor  
 Department of Computer Applications (MCA)  
 **Academic Year:** 2026–2027  
 
@@ -657,3 +657,4 @@ The following matrix establishes bidirectional traceability between system requi
 13. **H. B. Al-Qurashi, M. A. Azad, and H. F. Arshad**, "Mitigating Insider Data Exfiltration via Longitudinal Behavioral Baseline Analytics and Automated Session Isolation," in *Future Generation Computer Systems (Elsevier)*, vol. 141, pp. 312–326, 2023. DOI: [10.1016/j.future.2022.11.025](https://doi.org/10.1016/j.future.2022.11.025).
 14. **Y. Chen, J. Poskanzer, and S. Venkataraman**, "Performance and Latency Optimization in Browser-Hosted Virtualized Workstation Environments," in *USENIX Annual Technical Conference (ATC)*, pp. 415–429, 2023.
 15. **National Institute of Standards and Technology (NIST)**, "Zero Trust Architecture," NIST Special Publication 800-207, U.S. Department of Commerce, Washington, D.C., 2020. DOI: [10.6028/NIST.SP.800-207](https://doi.org/10.6028/NIST.SP.800-207).
+

@@ -1,13 +1,13 @@
 # MAJOR-PROJECT SYNOPSIS
 
-**USN:** 4MT25MC079  
+**USN:** 4MT25MC064  
 **PROJECT TITLE:** AN EXPLAINABLE HYBRID FRAMEWORK FOR INSIDER THREAT DETECTION USING USER BEHAVIOUR ANALYTICS, DYNAMIC RISK SCORING, AND AUTOMATED VIRTUAL WORKSTATION CONTAINMENT  
 **Submitted by:**  
-**STUDENT:** SAMUEL JESTEN SERRAO &emsp;&emsp; **USN:** 4MT25MC079  
+**STUDENT:** PRATHIK HEGDE &emsp;&emsp; **USN:** 4MT25MC064  
 
 **Under the Guidance of:**  
-**DR. CHANDRAKANTH T S**  
-Assistant Professor  
+**DR. ANUSHREE RAJ**  
+Associate Professor / Assistant Professor  
 Department of Computer Applications  
 **Academic Year:** 2026–27  
 
