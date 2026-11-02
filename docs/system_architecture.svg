@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 980" width="640" height="980" style="background-color: #ffffff;">
+  <defs>
+    <!-- Sharp black marker for arrows -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 21px;
+      font-weight: bold;
+      fill: #000000;
+      letter-spacing: 0.5px;
+    }
+    .box-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 15px;
+      font-weight: bold;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .box-subtitle {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 12.5px;
+      fill: #000000;
+      text-anchor: middle;
+    }
+    .pipeline-title {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 15.5px;
+      font-weight: bold;
+      fill: #000000;
+    }
+    .border-line {
+      stroke: #000000;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .solid-box {
+      stroke: #000000;
+      stroke-width: 1.8;
+      fill: #ffffff;
+    }
+    .dashed-box {
+      stroke: #000000;
+      stroke-width: 1.8;
+      stroke-dasharray: 6,4;
+      fill: none;
+    }
+    .flow-line {
+      stroke: #000000;
+      stroke-width: 1.6;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+  </style>
+
+  <!-- Outer Boundary Frame -->
+  <rect x="10" y="10" width="620" height="960" class="border-line" />
+
+  <!-- Diagram Title at Top Left -->
+  <text x="30" y="45" class="title-text">3.  SYSTEM ARCHITECTURE</text>
+
+  <!-- ================= TIER 1: USER / BROWSER ================= -->
+  <rect x="150" y="75" width="280" height="48" class="solid-box" />
+  <text x="290" y="99" class="box-title">User / Browser</text>
+
+  <!-- Arrow: User/Browser -> React Frontend -->
+  <line x1="290" y1="123" x2="290" y2="155" class="flow-line" />
+
+
+  <!-- ================= TIER 2: REACT FRONTEND ================= -->
+  <rect x="150" y="155" width="280" height="48" class="solid-box" />
+  <text x="290" y="179" class="box-title">React Frontend (macOS Virtual Desktop)</text>
+
+  <!-- Arrow: React Frontend -> Node.js Backend -->
+  <line x1="290" y1="203" x2="290" y2="235" class="flow-line" />
+
+
+  <!-- ================= TIER 3: NODE.JS BACKEND ================= -->
+  <rect x="150" y="235" width="280" height="48" class="solid-box" />
+  <text x="290" y="259" class="box-title">Node.js / Express Backend</text>
+
+  <!-- Database Cylinder on Right -->
+  <path d="M 465 235 C 465 224 585 224 585 235 C 585 246 465 246 465 235 Z" class="solid-box" />
+  <path d="M 465 235 L 465 285 C 465 296 585 296 585 285 L 585 235" class="solid-box" />
+  <path d="M 465 260 C 465 271 585 271 585 260" stroke="#000000" stroke-width="1.8" fill="none" />
+  <text x="525" y="260" class="box-title" style="font-size: 13px;">MySQL / SQLite</text>
+  <text x="525" y="278" class="box-subtitle" style="font-size: 11px;">(Sessions &amp; Alerts)</text>
+
+  <!-- Bidirectional connection between Backend and DB -->
+  <line x1="430" y1="259" x2="455" y2="259" class="flow-line" />
+  <line x1="465" y1="259" x2="438" y2="259" class="flow-line" />
+
+  <!-- Arrow: Node.js Backend -> Detection Pipeline -->
+  <line x1="290" y1="283" x2="290" y2="315" class="flow-line" />
+
+
+  <!-- ================= TIER 4: DETECTION PIPELINE (DASHED BOX) ================= -->
+  <rect x="50" y="315" width="540" height="435" class="dashed-box" />
+  <text x="65" y="338" class="pipeline-title">Detection Pipeline</text>
+
+  <!-- 4.1: Text & Telemetry Preprocessing -->
+  <rect x="110" y="355" width="420" height="46" class="solid-box" />
+  <text x="320" y="378" class="box-title">Telemetry Preprocessing &amp; Feature Extraction</text>
+
+  <!-- Arrow: Preprocessing -> Split to Parallel Detectors -->
+  <line x1="320" y1="401" x2="320" y2="425" class="flow-line" />
+  <line x1="210" y1="425" x2="430" y2="425" stroke="#000000" stroke-width="1.6" />
+  <line x1="210" y1="425" x2="210" y2="445" class="flow-line" />
+  <line x1="430" y1="425" x2="430" y2="445" class="flow-line" />
+
+  <!-- 4.2a: Left Detector (Rule-Based Policy Detector) -->
+  <rect x="90" y="445" width="240" height="50" class="solid-box" />
+  <text x="210" y="470" class="box-title">Rule-Based Detector</text>
+
+  <!-- 4.2b: Right Detector (Isolation Forest ML Classifier) -->
+  <rect x="360" y="445" width="200" height="50" class="solid-box" />
+  <text x="460" y="463" class="box-title">Isolation Forest</text>
+  <text x="460" y="480" class="box-title">+ Z-Score Baseline</text>
+
+  <!-- Arrows: Converging from Detectors to Risk Assessment -->
+  <line x1="210" y1="495" x2="210" y2="520" stroke="#000000" stroke-width="1.6" />
+  <line x1="430" y1="495" x2="430" y2="520" stroke="#000000" stroke-width="1.6" />
+  <line x1="210" y1="520" x2="430" y2="520" stroke="#000000" stroke-width="1.6" />
+  <line x1="320" y1="520" x2="320" y2="540" class="flow-line" />
+
+  <!-- 4.3: Risk Assessment & Suspicious-Span Detection -->
+  <rect x="90" y="540" width="460" height="46" class="solid-box" />
+  <text x="320" y="563" class="box-title">Risk Assessment &amp; Suspicious-Span Detection</text>
+
+  <!-- Arrow: Risk Assessment -> Explainable Attribution -->
+  <line x1="320" y1="586" x2="320" y2="615" class="flow-line" />
+
+  <!-- 4.4: Selective Sanitization / Explainable Attribution -->
+  <rect x="110" y="615" width="420" height="46" class="solid-box" />
+  <text x="320" y="638" class="box-title">Explainable Feature Attribution (SHAP Factors)</text>
+
+  <!-- Arrow: Attribution -> Workstation Containment -->
+  <line x1="320" y1="661" x2="320" y2="685" class="flow-line" />
+
+  <!-- 4.5: Automated Workstation Containment (Auto-Lock) -->
+  <rect x="110" y="685" width="420" height="46" class="solid-box" />
+  <text x="320" y="708" class="box-title">Automated Workstation Containment (Auto-Lock)</text>
+
+
+  <!-- ================= TIER 5: FORENSIC AUDIT CHAT / LLM ANALYTICS ================= -->
+  <!-- Arrow: Exiting Pipeline -> Cryptographic Audit Block -->
+  <line x1="320" y1="750" x2="320" y2="785" class="flow-line" />
+
+  <rect x="150" y="785" width="340" height="52" class="solid-box" />
+  <text x="320" y="805" class="box-title">SHA-256 Cryptographic Audit Ledger</text>
+  <text x="320" y="822" class="box-subtitle">(Tamper-Evident Blockchain Integrity)</text>
+
+  <!-- Arrow: Audit Ledger -> Results Dashboard -->
+  <line x1="320" y1="837" x2="320" y2="875" class="flow-line" />
+
+
+  <!-- ================= TIER 6: SOC RESULTS DASHBOARD ================= -->
+  <rect x="150" y="875" width="340" height="52" class="solid-box" />
+  <text x="320" y="901" class="box-title">SOC Results Dashboard &amp; Admin Portal</text>
+
+</svg>

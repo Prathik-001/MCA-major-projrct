@@ -413,44 +413,34 @@ flowchart TD
 
 ### 6.3 System Architecture Diagram
 
-The multi-tier system architecture enforces high coherence, separation of concerns, and robust real-time responsiveness:
-
 ```mermaid
 flowchart TD
-    subgraph Presentation_Layer["1. Presentation Tier (React 18 + Tailwind CSS)"]
-        UI1["macOS Desktop UI<br/>(Menu, Dock, Windows)"]
-        UI2["Virtual Apps<br/>(Mail, Docs, Chat, Drive)"]
-        UI3["Universal File Explorer<br/>(QuickLook Preview Engine)"]
-        UI4["Task Manager<br/>(Process Explorer)"]
-        UI5["Security Lock Screen<br/>(Admin Unlock Modal)"]
-        UI6["SOC Security Portal<br/>(Dashboard, Alerts, Analytics)"]
+    User["User / Browser"] --> React["React Frontend (macOS Virtual Desktop)"]
+    React --> Node["Node.js / Express Backend"]
+    Node <--> DB[("MySQL / SQLite<br/>(Sessions & Alerts)")]
+
+    subgraph Pipeline["Detection Pipeline"]
+        direction TB
+        P1["Telemetry Preprocessing & Feature Extraction"]
+        P1 --> Split1[" "]
+        
+        Split1 --> Rule["Rule-Based Detector"]
+        Split1 --> ML["Isolation Forest + Z-Score Baseline"]
+        
+        Rule --> Merge1[" "]
+        ML --> Merge1
+        
+        Merge1 --> Risk["Risk Assessment & Suspicious-Span Detection"]
+        Risk --> XAI["Explainable Feature Attribution (SHAP Factors)"]
+        XAI --> Contain["Automated Workstation Containment (Auto-Lock)"]
     end
 
-    subgraph Communication_Layer["2. Transport & Communication Tier"]
-        T1["REST API Gateway (Express.js)"]
-        T2["WebSocket Telemetry Engine (Socket.IO)"]
-        T3["JWT Authentication & RBAC Guard"]
-    end
-
-    subgraph Analytical_Layer["3. Intelligence & Detection Tier"]
-        AL1["Deterministic Rule Engine"]
-        AL2["Isolation Forest ML Engine"]
-        AL3["Z-Score Statistical Baseline Engine"]
-        AL4["Dynamic Risk Synthesizer"]
-        AL5["Explainability & Attribution Service"]
-        AL6["Automated Containment Controller"]
-    end
-
-    subgraph Persistence_Layer["4. Persistence & Security Tier"]
-        DB1[("Relational Database<br/>(Users, Sessions, Incidents)")]
-        DB2[("Baseline Store<br/>(30-day Histograms)")]
-        DB3[("SHA-256 Cryptographic Audit Ledger<br/>(Tamper-Evident Hash Chain)")]
-    end
-
-    Presentation_Layer <--> Communication_Layer
-    Communication_Layer <--> Analytical_Layer
-    Analytical_Layer <--> Persistence_Layer
+    Node --> Pipeline
+    Pipeline --> Audit["SHA-256 Cryptographic Audit Ledger<br/>(Tamper-Evident Blockchain Integrity)"]
+    Audit --> Dashboard["SOC Results Dashboard & Admin Portal"]
 ```
+
+> **Academic Report Vector Graphic (System Architecture):** Formatted matching standard report specifications: [docs/system_architecture.svg](file:///c:/Users/prath/OneDrive/Documents/1/MCA%20Major%20Project/docs/system_architecture.svg).
 
 ---
 
